@@ -4,10 +4,18 @@ from pydantic import BaseModel
 import pandas as pd
 from fastapi.middleware.cors import CORSMiddleware
 
+import os
+from pathlib import Path
 
-model = joblib.load("final_model.pkl")
-columns = joblib.load("final_columns.pkl")
-threshold = joblib.load("final_threshold.pkl")
+# Get the directory where app.py is located
+BASE_DIR = Path(__file__).resolve().parent
+
+# Load using the absolute path relative to this file
+model = joblib.load(BASE_DIR / "final_model.pkl")
+columns = joblib.load(BASE_DIR / "final_columns.pkl")
+threshold = joblib.load(BASE_DIR / "final_threshold.pkl")
+
+
 
 app = FastAPI()
 
