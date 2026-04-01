@@ -7,7 +7,6 @@ from fastapi.middleware.cors import CORSMiddleware
 import os
 from pathlib import Path
 
-# Get the directory where app.py is located
 BASE_DIR = Path(__file__).resolve().parent
 
 # Load using the absolute path relative to this file
